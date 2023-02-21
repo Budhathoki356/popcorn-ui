@@ -8,17 +8,6 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,css}": [
-      "npm run lint:fix",
-      "git add"
-    ]
-  },
   "scripts": {
     "lint": "eslint '**/*.js'",
     "lint:fix": "prettier-eslint '**/*.js' --write",
@@ -29,6 +18,17 @@
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{tsx,css}": [
+      "npm run lint:fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "Eklal Budhathoki",
