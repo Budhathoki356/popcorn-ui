@@ -1,0 +1,51 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "xo",
+    "plugin:jest-dom/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:testing-library/react"
+  ],
+  "globals": {
+    "React": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "jest-dom",
+    "testing-library"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "react/react-in-jsx-scope": 0,
+    "no-negated-condition": 0,
+    "no-unused-vars": 0,
+    "react/prop-types": 0,
+    "array-callback-return": 0,
+    "no-console": 1,
+    "no-alert": 0,
+    "camelcase": 1,
+    "capitalized-comments": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}
