@@ -8,10 +8,23 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "lint": "eslint '**/*.js'",
     "lint:fix": "prettier-eslint '**/*.js' --write",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "build": "concurrently \"npm:rollup\" \"npm:build-storybook\"",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
@@ -54,9 +67,11 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.4.3",
     "jest-environment-jsdom": "^29.4.3",
+    "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "postcss-loader": "^4.3.0",
     "prettier-eslint": "^15.0.1",

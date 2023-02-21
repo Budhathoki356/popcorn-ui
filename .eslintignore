@@ -1,0 +1,15 @@
+.storybook
+dist
+node_modules
+storybook-static
+.eslintrc.json
+.gitignore
+.npmrc
+.nvmrc
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+rollup.config.mjs
+jest.config.js
+babel.config.js
+coverage
