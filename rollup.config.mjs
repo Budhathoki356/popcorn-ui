@@ -1,24 +1,24 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import babel from '@rollup/plugin-babel';
+import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
-import terser from "@rollup/plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
-import packageJson from "./package.json" assert { type: "json" };
 
 export default [
   {
     input: 'src/index.ts',
     output: [
       {
-        file: packageJson.main,
+        file: 'dist/cjs/index.js',
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: packageJson.module,
+        file: 'dist/esm/index.js',
         format: 'esm',
         sourcemap: true,
       },
@@ -28,7 +28,20 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss(),
+      postcss({
+        config: {
+          path: './postcss.config.js',
+        },
+        extensions: ['.css'],
+        minimize: true,
+        inject: {
+          insertAt: 'top',
+        },
+      }),
+      babel({
+        exclude: 'node_modules/**',
+        presets: ['@babel/preset-react'],
+      }),
       terser(),
     ],
   },
