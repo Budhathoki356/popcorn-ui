@@ -17,7 +17,7 @@
     "build": "concurrently \"npm:rollup\" \"npm:build-storybook\"",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "prepare": "husky install"
   },
   "lint-staged": {
