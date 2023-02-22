@@ -14,6 +14,7 @@ module.exports = {
       },
     },
   ],
+  typescript: { reactDocgen: false },
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-webpack5",
