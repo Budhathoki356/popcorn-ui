@@ -5,6 +5,7 @@ on:
       - "src/stories/**"
       - "src/components/**"
       - "**.css"
+      -  "!assets/**"
 jobs:
   build-storybook:
     name: Build Storybook
