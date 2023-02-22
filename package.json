@@ -89,5 +89,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/budhathoki356"
-  }
+  },
+  "homepage": "https://63f5d6c0abc7b65cc1a7b3e1--incredible-quokka-cbbf0b.netlify.app/?path=/story/example-button--small"
 }
