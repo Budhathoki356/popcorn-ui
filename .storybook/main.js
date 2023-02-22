@@ -1,33 +1,33 @@
-const path = require('path');
+const path = require("path");
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
     {
-      name: '@storybook/addon-postcss',
+      name: "@storybook/addon-postcss",
       options: {
         postcssLoaderOptions: {
-          implementation: require('postcss'),
+          implementation: require("postcss"),
         },
       },
     },
   ],
-  framework: '@storybook/react',
+  framework: "@storybook/react",
   core: {
-    builder: '@storybook/builder-webpack5',
+    builder: "@storybook/builder-webpack5",
   },
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.css$/i,
       use: [
         {
-          loader: 'postcss-loader',
-          options: { implementation: require.resolve('postcss') },
+          loader: "postcss-loader",
+          options: { implementation: require.resolve("postcss") },
         },
       ],
-      include: path.resolve(__dirname, './.storybook/'),
+      include: path.resolve(__dirname, "./.storybook/"),
     });
     return config;
   },

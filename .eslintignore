@@ -13,3 +13,4 @@ rollup.config.mjs
 jest.config.js
 babel.config.js
 coverage
+docs-build
